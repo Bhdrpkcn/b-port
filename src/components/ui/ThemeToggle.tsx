@@ -15,15 +15,15 @@ const ThemeToggle = () => {
 
   return (
     <Toggle.Root
-      className=" "
+      className="flex cursor-pointer  justify-center items-center"
       pressed={theme === "light"}
       onPressedChange={() => setTheme(theme === "light" ? "dark" : "light")}
       aria-label="Toggle theme"
     >
       {theme === "light" ? (
         <svg
-          width="15"
-          height="15"
+          width="16"
+          height="16"
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +35,8 @@ const ThemeToggle = () => {
         </svg>
       ) : (
         <svg
-          width="15"
-          height="15"
+          width="16"
+          height="16"
           viewBox="0 0 15 15"
           xmlns="http://www.w3.org/2000/svg"
         >
