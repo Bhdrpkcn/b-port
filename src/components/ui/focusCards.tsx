@@ -10,6 +10,7 @@ export const Card = React.memo(
     hovered,
     setHovered,
   }: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     card: any;
     index: number;
     hovered: number | null;
@@ -54,7 +55,7 @@ export function FocusCards({ cards }: { cards: Card[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
+    <>
       {cards.map((card, index) => (
         <Card
           key={card.title}
@@ -64,6 +65,6 @@ export function FocusCards({ cards }: { cards: Card[] }) {
           setHovered={setHovered}
         />
       ))}
-    </div>
+    </>
   );
 }

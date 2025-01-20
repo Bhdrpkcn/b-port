@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const Header = () => {
   const { scrollYProgress } = useScroll();
@@ -9,12 +10,16 @@ const Header = () => {
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
-      let direction = current - scrollYProgress.getPrevious();
+      const previous = scrollYProgress.getPrevious();
 
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(true);
-      } else {
-        setVisible(direction < 0);
+      if (typeof previous === "number") {
+        const direction = current - previous;
+
+        if (scrollYProgress.get() < 0.05) {
+          setVisible(true);
+        } else {
+          setVisible(direction < 0);
+        }
       }
     }
   });
@@ -24,7 +29,7 @@ const Header = () => {
       initial={{ opacity: 1, y: 0 }}
       animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
       transition={{ duration: 0.2 }}
-      className="flex justify-between items-center p-4 bg-gray-900 text-white shadow-md fixed w-full z-50"
+      className="flex justify-between items-center fixed w-[75%] mt-4 z-50 p-4 bg-accent dark:bg-accentDark text-primary hover:opacity-[0.9] rounded-full"
     >
       <Link href="/" className="text-xl font-bold cursor-pointer">
         bp
@@ -37,6 +42,7 @@ const Header = () => {
         <Link href="#contact" className="hover:underline">
           Contact
         </Link>
+        <ThemeToggle />
       </nav>
     </motion.header>
   );

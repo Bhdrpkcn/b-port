@@ -30,7 +30,14 @@ const Work = () => {
     },
   ];
 
-  return <FocusCards cards={cards} />;
+  return (
+    <section
+      id="works"
+      className="border border-green-500  w-[90%] grid lg:grid-cols-2 md:grid-cols-3 gap-10 max-w-5xl py-12 mx-auto md:px-8"
+    >
+      <FocusCards cards={cards} />
+    </section>
+  );
 };
 
 export default Work;

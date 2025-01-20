@@ -1,24 +1,15 @@
 import React from "react";
 
-import { TracingBeam } from "@/components/ui/TracingBeam";
 import Header from "@/components/layout/Header";
 import Work from "@/components/layout/Work";
-import { Contact } from "@/components/layout/Contact";
+import Hero from "@/components/layout/Hero";
 
 export default function Home() {
   return (
-    <>
+    <div className="flex text-foreground bg-background flex-col items-center gap-8 w-full ">
       <Header />
-      <TracingBeam className="px-6">
-        <div className="pt-24 flex flex-col gap-8">
-          <section id="works">
-            <Work />
-          </section>
-          <section id="contact">
-            <Contact />
-          </section>
-        </div>
-      </TracingBeam>
-    </>
+      <Hero />
+      <Work />
+    </div>
   );
 }
