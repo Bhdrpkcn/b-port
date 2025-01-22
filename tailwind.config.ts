@@ -36,8 +36,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        accent: "#1abc9c",
-        accentDark: "#33ebc6",
+        accent: "#FFC107",
+        accentDark: "#FFD54F",
         primary: "#3c5a54",
         secondary: "#1abc9c",
         ternary: "#0e6251",

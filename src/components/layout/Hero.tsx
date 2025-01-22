@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="flex flex-col w-[90%] py-8 text-2xl font-medium items-center mt-24 text-center leading-relaxed"
+      className="flex flex-col w-full pt-16 pb-8 text-2xl font-medium items-center text-center leading-relaxed"
     >
       <span>
         I&apos;m Bahadir, a{" "}

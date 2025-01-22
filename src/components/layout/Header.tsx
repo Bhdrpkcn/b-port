@@ -28,7 +28,7 @@ const Header = () => {
     <>
       <div
         id="home"
-        className="flex justify-between items-center w-[95%]  z-50 p-4 text-primary hover:opacity-[0.9] rounded-full"
+        className="flex justify-between items-center w-full  z-50 py-4 text-primary hover:opacity-[0.9] rounded-full"
       >
         <Link
           href="/"
@@ -55,7 +55,7 @@ const Header = () => {
         initial={{ opacity: 1, y: 0 }}
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed w-[20%] min-w-40 mt-4 z-50 p-3 bg-accent dark:bg-accentDark text-primary hover:opacity-[0.9] rounded-full"
+        className="fixed self-center  w-[20%] min-w-40 mt-4 z-50 p-3 bg-accent dark:bg-accentDark text-primary hover:opacity-[0.9] rounded-full"
       >
         <nav className="flex justify-between px-4">
           <Link href="#home" className="">
