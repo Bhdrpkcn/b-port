@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Button from "./button";
 
 type Project = {
   id: string;
@@ -40,7 +41,10 @@ const Card = React.memo(({ project, hovered, onHover }: CardProps) => {
         />
         {hovered === id && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <button className="text-white text-3xl">→</button>
+            <Button
+              variant="projectButton"
+              onClick={() => console.log("Project Clicked")}
+            />
           </div>
         )}
       </div>

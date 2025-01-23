@@ -9,7 +9,7 @@ const Work = () => {
 
   return (
     <section id="works" className="w-full py-4">
-      <span className="flex m-4 text-[2rem] font-bold">selected works</span>
+      <span className="flex my-4 text-[2rem] font-bold">selected works</span>
 
       <div className="flex flex-col gap-10">
         {workProjects

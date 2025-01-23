@@ -15,7 +15,7 @@ const ThemeToggle = () => {
 
   return (
     <Toggle.Root
-      className="flex cursor-pointer  justify-center items-center"
+      className="flex cursor-pointer  justify-center items-center m-auto p-3 hover:scale-110 transition-all"
       pressed={theme === "light"}
       onPressedChange={() => setTheme(theme === "light" ? "dark" : "light")}
       aria-label="Toggle theme"

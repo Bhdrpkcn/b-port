@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/*text color- default*/
 :root {
   --background: #e0e0e0;
-  --foreground: #202020;
+  --foreground: #303030;
 }
 
+/*background color- dark*/
 .dark {
   --background: #151515;
   --foreground: #e0e0e0;

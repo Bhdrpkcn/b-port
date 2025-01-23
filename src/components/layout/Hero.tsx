@@ -1,30 +1,31 @@
 import React from "react";
 import { FlipWords } from "../ui/flipWords";
 import { heroWords } from "@/data/staticData";
+import Button from "../ui/button";
 
 const Hero = () => {
   return (
     <div
       id="hero"
-      className="flex flex-col w-full pt-16 pb-8 text-2xl font-medium items-center text-center leading-relaxed"
+      className="flex flex-col relative w-full pt-16 pb-8 text-[30px] font-medium items-center gap-4 leading-relaxed "
     >
-      <span>
+      <span className="flex-col">
         I&apos;m Bahadir, a{" "}
-        <span className="text-gradient-light font-semibold">
+        <span className="font-semibold text-gradient-light">
           Front-End Developer
-        </span>{" "}
-        , passionate about building{" "}
-        <span className="text-gradient-light font-semibold">
-          user-friendly, performant
-        </span>{" "}
-        web experiences.
-        <div className="flex flex-row items-center justify-center">
-          I craft digital experiences with
-          <span className="text-4xl h-[3.2rem] font-bold text-accent dark:text-accentDark">
-            <FlipWords words={heroWords} />
-          </span>
-        </div>
+        </span>
       </span>
+
+      <div className="flex flex-col text-[24px] items-center rotate-[-3deg]">
+        I craft digital experiences with
+      </div>
+      <span className="flex text-4xl h-[3.2rem] font-bold text-accent dark:text-accentDark">
+        <FlipWords words={heroWords} />
+      </span>
+      <div className=" flex  flex-row absolute gap-4 text-foreground right-0 bottom-0">
+        <Button variant="linkedInButton" />
+        <Button variant="githubButton" />
+      </div>
     </div>
   );
 };
