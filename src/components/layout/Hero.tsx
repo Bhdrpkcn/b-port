@@ -23,8 +23,8 @@ const Hero = () => {
         <FlipWords words={heroWords} />
       </span>
       <div className=" flex  flex-row absolute gap-4 text-foreground right-0 bottom-0">
-        <Button variant="linkedInButton" />
         <Button variant="githubButton" />
+        <Button variant="linkedInButton" />
       </div>
     </div>
   );

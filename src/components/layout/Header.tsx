@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import ThemeToggle from "../ui/ThemeToggle";
@@ -7,11 +7,26 @@ import ThemeToggle from "../ui/ThemeToggle";
 const Header = () => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
+  const [isScrollable, setIsScrollable] = useState(false);
+
+  useEffect(() => {
+    const checkScrollable = () => {
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setIsScrollable(scrollableHeight > 0);
+    };
+
+    checkScrollable();
+    window.addEventListener("resize", checkScrollable);
+
+    return () => {
+      window.removeEventListener("resize", checkScrollable);
+    };
+  }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (typeof current === "number") {
+    if (isScrollable && typeof current === "number") {
       const previous = scrollYProgress.getPrevious();
-
       if (typeof previous === "number") {
         const direction = current - previous;
 
@@ -32,12 +47,15 @@ const Header = () => {
       >
         <motion.header
           initial={{ opacity: 1, y: 0 }}
-          animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
+          animate={{
+            y: visible || !isScrollable ? 0 : -100,
+            opacity: visible || !isScrollable ? 1 : 0,
+          }}
           transition={{ duration: 0.2 }}
-          className="fixed self-center  w-[15%] min-w-40 mt-4 z-50 bg-accent dark:bg-accentDark text-primary hover:opacity-[0.9] rounded-full"
+          className="fixed self-center w-[15%] min-w-40 mt-4 z-50 bg-accent dark:bg-accentDark text-primary hover:opacity-[0.9] rounded-full"
         >
           <nav className="flex justify-between">
-            <Link href="#home" className="p-3 m-auto hover:scale-105">
+            <Link href="/#home" className="p-3 m-auto hover:scale-105">
               Home
             </Link>
 
