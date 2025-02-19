@@ -1,17 +1,16 @@
-import { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { workProjects } from "@/data/staticData";
 
-// ✅ Properly typed params
-type WorkDetailProps = {
-  params: { id: string };
-};
-
 // ✅ Ensure it's an async function if needed
-export default async function WorkDetail({ params }: WorkDetailProps) {
-  const { id } = params;
+export default async function WorkDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = await params;
+  const { id } = resolvedParams;
 
   if (!id) return notFound();
 
@@ -40,13 +39,4 @@ export default async function WorkDetail({ params }: WorkDetailProps) {
       </div>
     </div>
   );
-}
-
-// ✅ Optionally, define metadata (if using dynamic SEO)
-export function generateMetadata({ params }: WorkDetailProps): Metadata {
-  const card = workProjects.find((c) => c.id === params.id);
-  return {
-    title: card ? card.title : "Not Found",
-    description: card ? `Details about ${card.title}` : "Work not found",
-  };
 }
