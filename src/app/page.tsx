@@ -4,6 +4,7 @@ import React from "react";
 import Header from "@/components/layout/Header";
 import Work from "@/components/layout/Work";
 import Hero from "@/components/layout/Hero";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Work />
+      <Footer />
     </div>
   );
 }

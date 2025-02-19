@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
 import "./globals.css";
+import CanvasCursor from "@/components/ui/CanvasCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "<bp /> | webdev",
+  title: "<bp />",
   description:
     "Explore my projects, skills, and achievements in web development. Showcasing expertise in Next.js, TypeScript, Tailwind CSS, and modern front-end technologies.",
   keywords: [
@@ -87,6 +88,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system">
+          <CanvasCursor />
           {children}
         </ThemeProvider>
       </body>
