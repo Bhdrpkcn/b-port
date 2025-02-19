@@ -3,7 +3,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { workProjects } from "@/data/staticData";
 
-// ✅ Ensure it's an async function if needed
+import Button from "@/components/ui/Button";
+import Footer from "@/components/layout/Footer";
+
 export default async function WorkDetail({
   params,
 }: {
@@ -14,7 +16,6 @@ export default async function WorkDetail({
 
   if (!id) return notFound();
 
-  // Find the project in workProjects by id
   const card = workProjects.find((c) => c.id === id);
 
   if (!card) return notFound();
@@ -24,19 +25,88 @@ export default async function WorkDetail({
       <Header />
       <div>
         <h1 className="text-3xl font-bold mb-6">{card.title}</h1>
-        <div className="relative w-full h-96">
-          <Image
-            src={card.src}
-            alt={card.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
-          />
+
+        {/* Project Image */}
+        <div className="relative w-full max-w-5xl mx-auto">
+          <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-[80vh] overflow-hidden rounded-lg shadow-lg">
+            <Image
+              src={card.src}
+              alt={card.title}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1200px) 80vw, 60vw"
+              className="object-cover object-center md:object-top"
+              priority
+            />
+          </div>
         </div>
-        <p className="mt-4 text-gray-700">
-          Discover more about <strong>{card.title}</strong>.
-        </p>
+
+        {/* Project Links */}
+        <div className="flex flex-row relative justify-end gap-4 mt-6 ">
+          {card.liveLink && (
+            <div className="flex flex-col items-center">
+              <Button
+                variant="liveProjectButton"
+                link={card.liveLink}
+                className="mt-4"
+              />
+              <div>live link</div>
+            </div>
+          )}
+
+          {card.videoLink && (
+            <div className="flex flex-col items-center">
+              <Button
+                variant="youtubeProjectButton"
+                link={card.videoLink}
+                className="mt-4"
+              />
+              <div>youtube</div>
+            </div>
+          )}
+
+          {card.githubLink && (
+            <div className="flex flex-col items-center">
+              <Button
+                variant="githubProjectButton"
+                link={card.githubLink}
+                className="mt-4"
+              />
+              <div>github</div>
+            </div>
+          )}
+
+          {card.blogLink && (
+            <div className="flex flex-col items-center">
+              <Button
+                variant="githubProjectButton"
+                link={card.blogLink}
+                className="mt-4"
+              />
+              <div>blog</div>
+            </div>
+          )}
+        </div>
+
+        {/* Project Description */}
+        {card.body && (
+          <p className="mt-12 mb-6 text-gray-700 text-base md:text-lg xl:text-2xl dark:text-gray-400">
+            {card.body}
+          </p>
+        )}
+
+        {/* Project Tags */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {card.tags?.map((tag, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

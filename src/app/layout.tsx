@@ -43,11 +43,11 @@ export const metadata: Metadata = {
     title: "<bp /> | Web Developer Portfolio",
     description:
       "A showcase of my web development projects and skills, built with modern technologies like Next.js, TypeScript, and Tailwind CSS.",
-    url: "https://your-portfolio-url.com", // REPLACE
+    url: "https://b-port.vercel.app/",
     siteName: "b-port",
     images: [
       {
-        url: "https://your-portfolio-url.com/og-image.png", // REPLACE
+        url: "https://b-port.vercel.app/",
         width: 1200,
         height: 630,
         alt: "b-port Web Developer Portfolio Cover Image",
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://your-portfolio-url.com", // REPLACE
+    canonical: "https://b-port.vercel.app/",
     languages: {
-      "en-US": "https://your-portfolio-url.com", // REPLACE
+      "en-US": "https://b-port.vercel.app/",
     },
     types: {
       "text/html": [

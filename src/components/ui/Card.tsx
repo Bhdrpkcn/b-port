@@ -3,14 +3,19 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import Button from "./Button";
+import { StaticImageData } from "next/image";
 
 type Project = {
   id: string;
   title: string;
-  src: string;
+  src: string | StaticImageData;
   tags: string[];
   highlighted: boolean;
+  body?: string;
+  githubLink?: string;
+  liveLink?: string;
+  videoLink?: string;
+  blogLink?: string;
 };
 
 type CardProps = {
@@ -20,7 +25,7 @@ type CardProps = {
 };
 
 const Card = React.memo(({ project, hovered, onHover }: CardProps) => {
-  const { id, title, src, tags, highlighted } = project;
+  const { id, title, tags, highlighted } = project;
 
   return (
     <Link href={`/work/${id}`} passHref>
@@ -34,23 +39,21 @@ const Card = React.memo(({ project, hovered, onHover }: CardProps) => {
         )}
       >
         <Image
-          src={src}
+          src={typeof project.src === "string" ? project.src : project.src.src}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover absolute inset-0"
         />
-        {hovered === id && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Button variant="projectButton" />
-          </div>
-        )}
       </div>
       <div className="py-2">
         <h3 className="text-lg font-bold">{title}</h3>
-        <div className="flex flex-row">
+        <div className="flex flex-row overflow-auto whitespace-nowrap pb-2">
           {tags.map((tag, tagIndex) => (
-            <h4 key={tagIndex} className="px-1 text-sm text-gray-500">
+            <h4
+              key={tagIndex}
+              className="flex flex-row px-1 text-sm text-gray-500"
+            >
               {tag}
             </h4>
           ))}
