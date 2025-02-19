@@ -8,7 +8,7 @@ const Footer = () => {
     <>
       <div
         id="footer"
-        className="flex flex-col justify-between items-center left-[-3rem] md:left-[-5rem] lg:left-[-8rem] relative w-screen z-50 gap-6 py-8 text-primary bg-accent dark:bg-accentDark "
+        className="flex flex-col justify-between items-center left-[-3rem] md:left-[-5rem] lg:left-[-13rem] relative w-screen z-50 gap-6 py-8 text-primary bg-accent dark:bg-accentDark "
       >
         <div className="flex flex-row gap-4 text-foreground">
           <Button variant="githubButton" />

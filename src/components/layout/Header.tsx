@@ -67,14 +67,14 @@ const Header = () => {
           </nav>
         </motion.header>
 
-        <div className="flex absolute bottom-0 right-0 w-36 sm:w-40 justify-between items-center rounded-full bg-accent dark:bg-accentDark">
+        <div className="flex absolute bottom-0 right-0 w-36 sm:w-40 px-2 gap-2 justify-between items-center rounded-full bg-accent dark:bg-accentDark max-[460px]:w-24">
           <ThemeToggle />
 
-          <div className="w-[1px] h-4 bg-primary dark:bg-white opacity-50 m-auto"></div>
+          <div className="w-[1px] h-4 bg-primary dark:bg-white opacity-50 m-auto max-[460px]:hidden"></div>
 
           <Link
             href="mailto:bhdrpkcn@gmail.com?subject=About your Portfolio"
-            className="flex p-3 cursor-pointer justify-center items-center m-auto hover:scale-105"
+            className="flex py-3 pl-0 cursor-pointer justify-center items-center m-auto hover:scale-105"
           >
             Contact
           </Link>
