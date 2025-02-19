@@ -67,7 +67,7 @@ const Header = () => {
           </nav>
         </motion.header>
 
-        <div className="flex absolute bottom-0 right-0 w-28 sm:w-32 justify-between items-center rounded-full bg-accent dark:bg-accentDark">
+        <div className="flex absolute bottom-0 right-0 w-36 sm:w-40 justify-between items-center rounded-full bg-accent dark:bg-accentDark">
           <ThemeToggle />
 
           <div className="w-[1px] h-4 bg-primary dark:bg-white opacity-50 m-auto"></div>
