@@ -1,27 +1,24 @@
-// src/app/work/[id]/page.tsx
-
+import { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { workProjects } from "@/data/staticData"; // Import the data
+import { workProjects } from "@/data/staticData";
 
-interface WorkDetailProps {
+// ✅ Properly typed params
+type WorkDetailProps = {
   params: { id: string };
-}
+};
 
+// ✅ Ensure it's an async function if needed
 export default async function WorkDetail({ params }: WorkDetailProps) {
   const { id } = params;
 
-  if (!id) {
-    return notFound();
-  }
+  if (!id) return notFound();
 
   // Find the project in workProjects by id
   const card = workProjects.find((c) => c.id === id);
 
-  if (!card) {
-    return notFound();
-  }
+  if (!card) return notFound();
 
   return (
     <div className="flex flex-col w-full gap-8 px-12 md:px-20 lg:px-32 text-foreground bg-background">
@@ -43,4 +40,13 @@ export default async function WorkDetail({ params }: WorkDetailProps) {
       </div>
     </div>
   );
+}
+
+// ✅ Optionally, define metadata (if using dynamic SEO)
+export function generateMetadata({ params }: WorkDetailProps): Metadata {
+  const card = workProjects.find((c) => c.id === params.id);
+  return {
+    title: card ? card.title : "Not Found",
+    description: card ? `Details about ${card.title}` : "Work not found",
+  };
 }
