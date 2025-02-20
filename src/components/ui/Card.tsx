@@ -47,12 +47,15 @@ const Card = React.memo(({ project, hovered, onHover }: CardProps) => {
         />
       </div>
       <div className="py-2">
-        <h3 className="text-lg font-bold">{title}</h3>
+        <span className="font-semibold text-gradient-light text-xl mr-4">
+          {title}{" "}
+        </span>
+
         <div className="flex flex-row overflow-auto whitespace-nowrap pb-2">
           {tags.map((tag, tagIndex) => (
             <h4
               key={tagIndex}
-              className="flex flex-row px-1 text-sm text-gray-500"
+              className="flex flex-row px-2 mr-2 my-2 text-sm text-gray-500 border-none rounded-md bg-tags dark:bg-tagsDark"
             >
               {tag}
             </h4>

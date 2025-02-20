@@ -21,7 +21,7 @@ export default async function WorkDetail({
   if (!card) return notFound();
 
   return (
-    <div className="flex flex-col w-full gap-8 px-12 md:px-20 lg:px-32 text-foreground bg-background">
+    <div className="flex flex-col w-full gap-8 px-12 md:px-20 lg:px-52 text-foreground bg-background">
       <Header />
       <div>
         <h1 className="text-3xl font-bold mb-6">{card.title}</h1>
@@ -41,7 +41,7 @@ export default async function WorkDetail({
         </div>
 
         {/* Project Links */}
-        <div className="flex flex-row relative justify-end gap-4 mt-6 ">
+        <div className="flex flex-row relative justify-center gap-4 mt-6 ">
           {card.liveLink && (
             <div className="flex flex-col items-center">
               <Button
@@ -106,7 +106,9 @@ export default async function WorkDetail({
           ))}
         </div>
       </div>
-      <Footer />
+      <div className="">
+        <Footer />
+      </div>
     </div>
   );
 }

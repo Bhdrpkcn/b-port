@@ -18,10 +18,7 @@ const Hero = () => {
         <FlipWords words={heroWords} />
       </span>
 
-      <div className=" flex flex-row w-full justify-end gap-4 text-foreground mt-12 items-center">
-        <span className="font-semibold text-gradient-light text-sm mr-4">
-          Front-End Developer
-        </span>
+      <div className=" flex flex-row w-[60%] justify-end gap-4 text-foreground mt-12 items-center scale-[1.5]">
         <Button variant="githubButton" />
         <Button variant="linkedInButton" />
       </div>

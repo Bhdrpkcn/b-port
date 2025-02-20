@@ -38,6 +38,8 @@ const config: Config = {
         foreground: "var(--foreground)",
         accent: "#FFC107",
         accentDark: "#FFD54F",
+        tags: "#ffe495",
+        tagsDark: "#ccc3aa",
         primary: "#3c5a54",
         secondary: "#1abc9c",
         ternary: "#0e6251",

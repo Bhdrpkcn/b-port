@@ -116,8 +116,8 @@ const useCanvasCursor = () => {
       ctx.globalCompositeOperation = "source-over";
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       ctx.globalCompositeOperation = "lighter";
-      ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",50%,50%,0.2)";
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",50%,50%,0.05)";
+      ctx.lineWidth = 2;
       for (var e, t = 0; t < E.trails; t++) {
         (e = lines[t]).update();
         e.draw();
@@ -140,7 +140,7 @@ const useCanvasCursor = () => {
     E = {
       debug: true,
       friction: 0.5,
-      trails: 20,
+      trails: 15,
       size: 50,
       dampening: 0.25,
       tension: 0.98,
@@ -159,7 +159,7 @@ const useCanvasCursor = () => {
     f = new n({
       phase: Math.random() * 2 * Math.PI,
       amplitude: 85,
-      frequency: 0.0015,
+      frequency: 0.015,
       offset: 285,
     });
     document.addEventListener("mousemove", onMousemove);
@@ -179,6 +179,10 @@ const useCanvasCursor = () => {
   };
 
   useEffect(() => {
+    if (window.innerWidth < 600) {
+      return;
+    }
+
     renderCanvas();
 
     return () => {
