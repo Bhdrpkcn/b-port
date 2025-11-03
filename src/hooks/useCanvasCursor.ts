@@ -116,7 +116,7 @@ const useCanvasCursor = () => {
       ctx.globalCompositeOperation = "source-over";
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       ctx.globalCompositeOperation = "lighter";
-      ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",50%,50%,0.05)";
+      ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",50%,50%,0.01)";
       ctx.lineWidth = 2;
       for (var e, t = 0; t < E.trails; t++) {
         (e = lines[t]).update();

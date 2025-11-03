@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🪄 b-port — Personal Portfolio
 
-## Getting Started
+This is **b-port**, my personal portfolio website built with [Next.js](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).
+It showcases my projects, design philosophy, and development journey — crafted for performance, readability, and elegance.
 
-First, run the development server:
+---
+
+## 🧩 Project Setup
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Bhdrpkcn/b-port.git
+cd b-port
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧠 Development Schedule
 
-To learn more about Next.js, take a look at the following resources:
+| Step | Command         | Description                                                     |
+| ---- | --------------- | --------------------------------------------------------------- |
+| 1    | `npm run dev`   | Run the development server (recommended for local development). |
+| 2    | `npm run build` | Build the app for production – generates the `.next` folder.    |
+| 3    | `npm start`     | Start the production server (requires build).                   |
+| 4    | `npm audit fix` | Optional — fix minor vulnerabilities automatically.             |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💡 Usage
 
-## Deploy on Vercel
+Once running, open [http://localhost:3000](http://localhost:3000) in your browser.
+You can start customizing the main page at:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/page.tsx
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The app supports **hot reload**, so your edits will update instantly.
+
+---
+
+## 🦯 Project Goals
+
+The purpose of **b-port** is to:
+
+* Present my best front-end projects and experiments (React, TypeScript, Next.js).
+* Serve as a living CV and design showcase for potential employers.
+* Reflect my commitment to **clean, maintainable, and scalable code**.
+
+---
+
+## 🧮 Developer Notes
+
+* All components follow modular folder structure for reusability.
+* Fonts are automatically optimized with [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).
+* Designed with **performance**, **accessibility**, and **responsive UI** in mind.
+* Ideal for showcasing front-end architecture and animations in production-level quality.
+
+---
+
+## 🌐 Deployment
+
+Deployed via [Vercel](https://vercel.com), the creators of Next.js.
+To deploy your own version:
+
+```bash
+npm run build
+vercel deploy
+```
+
+Check out the [Next.js deployment guide](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## 📬l Contact
+
+Built with passion by **Bahadır Pekcan**.
+
+* 🌎 [Portfolio Live](https://b-port.vercel.app)
+* 💼 [LinkedIn](https://www.linkedin.com/in/bhdrpkcn)
+* 🤖 [GitHub](https://github.com/Bhdrpkcn)
+
+---
+
+### © 2025 Bahadır Pekcan — Crafted with precision and creativity.

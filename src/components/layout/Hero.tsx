@@ -1,13 +1,13 @@
 import React from "react";
 import { FlipWords } from "../ui/flipWords";
-import { heroWords } from "@/data/staticData";
+import { heroWords, staticLinks } from "@/data/staticData";
 import Button from "../ui/Button";
 
 const Hero = () => {
   return (
     <div
       id="hero"
-      className="flex flex-col relative w-full pt-16 pb-8 text-[30px] font-medium items-center gap-4 leading-relaxed "
+      className="flex flex-col relative w-full pt-16 pb-2 text-[30px] font-medium items-center gap-4 leading-relaxed select-none"
     >
       <span className="flex-col text-lg">I&apos;m Bahadir, and I enjoy </span>
 
@@ -18,9 +18,9 @@ const Hero = () => {
         <FlipWords words={heroWords} />
       </span>
 
-      <div className=" flex flex-row w-[60%] justify-end gap-4 text-foreground mt-12 items-center scale-[1.5]">
-        <Button variant="githubButton" />
-        <Button variant="linkedInButton" />
+      <div className=" flex flex-row w-[60%] justify-end gap-4 -mt-6 text-foreground items-center scale-[1.5]">
+        <Button variant="githubButton" link={staticLinks.github} />
+        <Button variant="linkedInButton" link={staticLinks.linkedIn} />
       </div>
     </div>
   );

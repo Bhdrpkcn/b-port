@@ -2,6 +2,7 @@
 import React from "react";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { staticLinks } from "@/data/staticData";
 
 const Footer = () => {
   return (
@@ -11,8 +12,8 @@ const Footer = () => {
         className="flex flex-col justify-between items-center left-[-3rem] md:left-[-5rem] lg:left-[-13rem] relative w-screen z-50 gap-6 py-8 text-primary bg-accent dark:bg-accentDark "
       >
         <div className="flex flex-row gap-4 text-foreground">
-          <Button variant="githubButton" />
-          <Button variant="linkedInButton" />
+          <Button variant="githubButton" link={staticLinks.github} />
+          <Button variant="linkedInButton" link={staticLinks.linkedIn} />
         </div>
 
         <div className="h-6 ">

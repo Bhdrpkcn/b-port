@@ -2,7 +2,9 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-const buttonVariants = {
+import { ButtonProps } from "@/types/buttonType";
+
+export const buttonVariants = {
   projectButton: (
     <svg
       width="30"
@@ -29,6 +31,38 @@ const buttonVariants = {
         d="M1.20308 1.04312C1.00481 0.954998 0.772341 1.0048 0.627577 1.16641C0.482813 1.32802 0.458794 1.56455 0.568117 1.75196L3.92115 7.50002L0.568117 13.2481C0.458794 13.4355 0.482813 13.672 0.627577 13.8336C0.772341 13.9952 1.00481 14.045 1.20308 13.9569L14.7031 7.95693C14.8836 7.87668 15 7.69762 15 7.50002C15 7.30243 14.8836 7.12337 14.7031 7.04312L1.20308 1.04312ZM4.84553 7.10002L2.21234 2.586L13.2689 7.50002L2.21234 12.414L4.84552 7.90002H9C9.22092 7.90002 9.4 7.72094 9.4 7.50002C9.4 7.27911 9.22092 7.10002 9 7.10002H4.84553Z"
         fill="currentColor"
       ></path>
+    </svg>
+  ),
+  rightButton: (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 640 640"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
+    </svg>
+  ),
+  leftButton: (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 640 640"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
     </svg>
   ),
   githubButton: (
@@ -106,16 +140,14 @@ const buttonVariants = {
       </g>
     </svg>
   ),
-};
+} as const;
 
-type ButtonProps = {
-  variant: keyof typeof buttonVariants;
-  link?: string;
-  onClick?: () => void;
-  className?: string;
-};
-
-const Button: React.FC<ButtonProps> = ({ variant, link, className }) => {
+const Button: React.FC<ButtonProps> = ({
+  variant,
+  link,
+  className,
+  onClick,
+}) => {
   const buttonStyles = cn(
     "flex items-center justify-center  transition-all",
     variant === "githubButton" || variant === "linkedInButton"
@@ -125,23 +157,20 @@ const Button: React.FC<ButtonProps> = ({ variant, link, className }) => {
   );
 
   const handleClick = () => {
+    if (onClick) {
+      onClick();
+      return;
+    }
+
     if (link) {
       window.open(link, "_blank");
-    } else {
-      if (variant === "githubButton") {
-        window.open("https://github.com/Bhdrpkcn?tab=repositories", "_blank");
-      } else if (variant === "linkedInButton") {
-        window.open(
-          "https://www.linkedin.com/in/bahad%C4%B1r-pekcan/",
-          "_blank"
-        );
-      }
+      return;
     }
   };
 
   return (
     <button onClick={handleClick} className={buttonStyles} aria-label={variant}>
-      {buttonVariants[variant]}
+      {buttonVariants[variant] ?? buttonVariants.projectButton}
     </button>
   );
 };

@@ -3,26 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { StaticImageData } from "next/image";
-
-type Project = {
-  id: string;
-  title: string;
-  src: string | StaticImageData;
-  tags: string[];
-  highlighted: boolean;
-  body?: string;
-  githubLink?: string;
-  liveLink?: string;
-  videoLink?: string;
-  blogLink?: string;
-};
-
-type CardProps = {
-  project: Project;
-  onHover: (id: string | null) => void;
-  hovered: string | null;
-};
+import { CardProps } from "@/types/cardType";
 
 const Card = React.memo(({ project, hovered, onHover }: CardProps) => {
   const { id, title, tags, highlighted } = project;
@@ -52,7 +33,7 @@ const Card = React.memo(({ project, hovered, onHover }: CardProps) => {
         </span>
 
         <div className="flex flex-row overflow-auto whitespace-nowrap pb-2">
-          {tags.map((tag, tagIndex) => (
+          {tags?.map((tag, tagIndex) => (
             <h4
               key={tagIndex}
               className="flex flex-row px-2 mr-2 my-2 text-sm text-gray-500 border-none rounded-md bg-tags dark:bg-tagsDark"

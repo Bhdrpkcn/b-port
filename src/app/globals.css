@@ -37,3 +37,24 @@ html {
 .progress {
   transform: scaleX(0);
 }
+
+button.slick-arrow.slick-prev,
+button.slick-arrow.slick-next {
+  color: var(--foreground);
+}
+
+button.slick-arrow {
+  scale: 2;
+}
+
+@media (min-width: 768px) {
+  button.slick-arrow {
+    scale: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  button.slick-arrow {
+    scale: 4;
+  }
+}
